@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+/* Identidade visual do OPT Cam (mesma paleta da Sprint 3) */
+@theme {
+  --color-night-900: #08050f;
+  --color-night-800: #0e0a1c;
+  --color-night-700: #150f28;
+  --color-night-card: #17112b;
+  --color-brand: #7b5cf0;
+  --color-brand-deep: #6142d6;
+  --color-fg: #f6f4fc;
+  --color-fg-mid: #c9c2dd;
+  --color-fg-low: #8d84a8;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.14);
+
+  --font-display: 'Sora', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --shadow-glow: 0 30px 80px -30px rgb(123 92 240 / 0.45);
+
+  --animate-reveal: reveal 0.8s ease both;
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+    background-color: var(--color-night-900);
+    color: var(--color-fg-mid);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-fg);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/*
+ * Cantos de "visor de câmera" que aparecem no hover dos cards.
+ * Usa ::before/::after com estado de hover, algo que fica mais legível em CSS puro.
+ */
+@layer components {
+  .viewfinder {
+    position: relative;
+  }
+
+  .viewfinder::before,
+  .viewfinder::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid transparent;
+    opacity: 0;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .viewfinder::before {
+    top: 10px;
+    left: 10px;
+    border-top-color: var(--color-brand);
+    border-left-color: var(--color-brand);
+    transform: translate(4px, 4px);
+  }
+
+  .viewfinder::after {
+    bottom: 10px;
+    right: 10px;
+    border-bottom-color: var(--color-brand);
+    border-right-color: var(--color-brand);
+    transform: translate(-4px, -4px);
+  }
+
+  .viewfinder:hover::before,
+  .viewfinder:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

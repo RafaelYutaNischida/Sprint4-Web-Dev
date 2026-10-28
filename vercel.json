@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/colorapi/:path*", "destination": "https://www.thecolorapi.com/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
