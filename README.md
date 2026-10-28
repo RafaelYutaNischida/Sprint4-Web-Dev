@@ -125,8 +125,8 @@ O arquivo `vercel.json` já faz duas coisas: encaminha `/api/colorapi/*` para a 
 
 ## Links
 
-- **Repositório Git:** https://github.com/Gustavo-Nascimentoo/Sprint3-Web-Dev *(link do repositório da Sprint 3, de onde este projeto evoluiu; confirme se é o mesmo usado na entrega)*
-- **Deploy na Vercel:** [INSERIR LINK DA VERCEL]
+- **Repositório Git:** https://github.com/Gustavo-Nascimentoo/Sprint3-Web-Dev
+- **Deploy na Vercel:** https://vercel.com/rafael-d6b8/sprint4_web_dev
 
 ## Uso de IA no desenvolvimento
 
